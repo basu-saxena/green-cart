@@ -13,8 +13,6 @@ const ProductCategory = () => {
     (item) => item.path.toLowerCase() === category
   );
 
-  console.log(searchCategory);
-
   const filteredProducts = products.filter(
     (product) => product.category.toLowerCase() === category
   );
