@@ -23,9 +23,9 @@ const Navbar = () => {
       const { data } = await axios.get("/api/user/logout");
 
       if (data.success) {
+        setOpen(false);
         toast.success(data.message);
         setUser(null);
-        setShowUserLogin(true);
         navigate("/");
       } else {
         toast.error(data.message);
@@ -144,7 +144,7 @@ const Navbar = () => {
         <div
           className={`${
             open ? "flex" : "hidden"
-          } absolute top-[60px] left-0 w-full bg-white shadow-md py-4 flex-col items-start gap-2 px-5 text-sm md:hidden`}
+          } absolute top-[60px] left-0 w-full z-30 bg-white shadow-md py-4 flex-col items-start gap-2 px-5 text-sm md:hidden`}
         >
           <NavLink to="/" onClick={() => setOpen(false)}>
             Home
@@ -163,7 +163,10 @@ const Navbar = () => {
 
           {!user ? (
             <button
-              onClick={(() => setOpen(false), setShowUserLogin(true))}
+              onClick={() => {
+                setOpen(false);
+                setShowUserLogin(true);
+              }}
               className="cursor-pointer px-6 py-2 mt-2 bg-primary hover:bg-primary-dull transition text-white rounded-full text-sm"
             >
               Login
