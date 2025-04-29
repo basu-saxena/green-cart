@@ -133,7 +133,7 @@ const Cart = () => {
                   navigate(
                     `/products/${product.category.toLowerCase()}/${product._id}`
                   );
-                  scrollTo(0, 0);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
                 className="cursor-pointer w-24 h-24 flex items-center justify-center border border-gray-300 rounded"
               >
@@ -192,7 +192,7 @@ const Cart = () => {
         <button
           onClick={() => {
             navigate(`/products`);
-            scrollTo(0, 0);
+            window.scrollTo({ top: 0, behavior: "smooth" });
           }}
           className="group cursor-pointer flex items-center mt-8 gap-2 text-primary font-medium"
         >

@@ -131,7 +131,7 @@ const ProductDetails = () => {
           <button
             onClick={() => {
               navigate(`/products/${product.category.toLowerCase()}`),
-                scrollTo(0, 0);
+                window.scrollTo({ top: 0, behavior: "smooth" });
             }}
             className="mx-auto cursor-pointer px-12 my-16 py-2.5 border-rounded text-primary hover:bg-primary/10 transition"
           >

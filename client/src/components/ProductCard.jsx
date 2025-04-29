@@ -14,7 +14,7 @@ const ProductCard = ({ product }) => {
           navigate(
             `/products/${product.category.toLowerCase()}/${product._id}`
           );
-          scrollTo(0.0);
+          window.scrollTo({ top: 0, behavior: "smooth" });
         }}
         className="border border-gray-500/20 rounded-md md:px-4 px-3 py-2 bg-white  max-w-56 w-full"
       >
