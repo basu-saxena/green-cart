@@ -45,14 +45,30 @@ const Navbar = () => {
 
   return (
     <nav className="sticky top-0 z-50 flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 py-4 border-b border-gray-300 bg-white relative transition-all">
-      <NavLink to="/" onClick={() => setOpen(false)}>
+      <NavLink
+        to="/"
+        onClick={() => {
+          setOpen(false);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}
+      >
         <img className="h-9" src={assets.logo} alt="logo" />
       </NavLink>
 
       {/* Desktop Menu */}
       <div className="hidden sm:flex items-center gap-8">
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/products">All Products</NavLink>
+        <NavLink
+          to="/"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
+          Home
+        </NavLink>
+        <NavLink
+          to="/products"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
+          All Products
+        </NavLink>
         <NavLink to="/">Contact</NavLink>
 
         <div className="hidden lg:flex items-center text-sm gap-2 border border-gray-300 px-3 rounded-full">
@@ -70,6 +86,7 @@ const Navbar = () => {
         <div
           onClick={() => {
             navigate("/cart");
+            window.scrollTo({ top: 0, behavior: "smooth" });
           }}
           className="relative cursor-pointer"
         >
@@ -99,7 +116,10 @@ const Navbar = () => {
             />
             <ul className="hidden group-hover:block absolute top-10 rigth-0 bg-white shadow border border-gray-200 py-2.5 w-30 rounded-md text-sm z-40">
               <li
-                onClick={() => navigate("my-orders")}
+                onClick={() => {
+                  navigate("my-orders");
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
                 className="p-1.5 pl-3 hover:bg-primary/10 cursor-pointer"
               >
                 My Orders
@@ -148,14 +168,32 @@ const Navbar = () => {
             open ? "flex" : "hidden"
           } absolute top-[60px] left-0 w-full z-30 bg-white shadow-md py-4 flex-col items-start gap-2 px-5 text-sm md:hidden`}
         >
-          <NavLink to="/" onClick={() => setOpen(false)}>
+          <NavLink
+            to="/"
+            onClick={() => {
+              setOpen(false);
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+          >
             Home
           </NavLink>
-          <NavLink to="/products" onClick={() => setOpen(false)}>
+          <NavLink
+            to="/products"
+            onClick={() => {
+              setOpen(false);
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+          >
             All Products
           </NavLink>
           {user && (
-            <NavLink to="/my-orders" onClick={() => setOpen(false)}>
+            <NavLink
+              to="/my-orders"
+              onClick={() => {
+                setOpen(false);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+            >
               My Orders
             </NavLink>
           )}
