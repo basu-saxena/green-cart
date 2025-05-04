@@ -84,7 +84,7 @@ export const login = async (req, res) => {
       maxAge: 7 * 24 * 60 * 60 * 1000,
       path: "/",
     });
-
+    console.log("Set-Cookie header:", res.getHeaders()["set-cookie"]);
     return res.json({
       success: true,
       user: { email: user.email, name: user.name },
