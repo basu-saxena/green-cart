@@ -20,9 +20,10 @@ const Login = () => {
       });
 
       if (data.success) {
-        navigate("/");
         setUser(data.user);
         setShowUserLogin(false);
+        navigate("/");
+        location.reload();
       } else {
         toast.error(data.message);
       }

@@ -16,6 +16,7 @@ const Navbar = () => {
     setSearchQuery,
     getCartCount,
     axios,
+    setCartItems,
   } = useAppContext();
 
   const logout = async () => {
@@ -25,6 +26,7 @@ const Navbar = () => {
       if (data.success) {
         setOpen(false);
         toast.success(data.message);
+        setCartItems([]);
         setUser(null);
         navigate("/");
       } else {
