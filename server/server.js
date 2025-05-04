@@ -17,7 +17,7 @@ const port = process.env.PORT || 4000;
 
 await connectDB();
 await connectCloudinary();
-const allowedOrigins = ["https://green-cart-six.vercel.app"];
+const allowedOrigins = ["http://localhost:5173"];
 
 app.post(
   "/stripe",

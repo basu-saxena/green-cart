@@ -18,6 +18,7 @@ export const AppContextProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState({});
   const [searchQuery, setSearchQuery] = useState({});
+  const [loadingUser, setLoadingUser] = useState(false);
 
   const fetchSeller = async () => {
     try {
@@ -35,6 +36,7 @@ export const AppContextProvider = ({ children }) => {
 
   const fetchUser = async () => {
     try {
+      setLoadingUser(true);
       const { data } = await axios.get("/api/user/is-auth");
       if (data.success) {
         setUser(data.userDoc);
@@ -49,6 +51,8 @@ export const AppContextProvider = ({ children }) => {
       if (error.response?.status === 401) {
         console.log("User is not authenticated ");
       }
+    } finally {
+      setLoadingUser(false);
     }
   };
 
@@ -172,6 +176,7 @@ export const AppContextProvider = ({ children }) => {
     getCartCount,
     axios,
     fetchProducts,
+    loadingUser,
   };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };

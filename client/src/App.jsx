@@ -22,11 +22,15 @@ import Loading from "./components/Loading";
 const App = () => {
   const isSellerPath = useLocation().pathname.includes("seller");
 
-  const { showUserLogin, isSeller } = useAppContext();
+  const { showUserLogin, isSeller, loadingUser } = useAppContext();
 
   // console.log(showUserLogin);
 
-  return (
+  return loadingUser ? (
+    <div>
+      <Loading />
+    </div>
+  ) : (
     <div className="text-default min-h-screen text-gray-700 bg-white">
       {!isSellerPath && <Navbar />}
       {showUserLogin ? <Login /> : null}
