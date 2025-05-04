@@ -5,6 +5,7 @@ import jwt from "jsonwebtoken";
 //Register User ...: /api/user/register
 
 export const register = async (req, res) => {
+  res.setHeader("Cache-Control", "no-store");
   try {
     const { name, email, password } = req.body;
 
@@ -45,6 +46,7 @@ export const register = async (req, res) => {
 //Register User ...: /api/user/login
 
 export const login = async (req, res) => {
+  res.setHeader("Cache-Control", "no-store");
   try {
     const { email, password } = req.body;
 
@@ -96,6 +98,7 @@ export const login = async (req, res) => {
 //Check Auth : /api/user/is-auth
 
 export const isAuth = async (req, res) => {
+  res.setHeader("Cache-Control", "no-store");
   try {
     // console.log("inside isAuth");
     const { userId } = req;
@@ -109,6 +112,7 @@ export const isAuth = async (req, res) => {
 //Logout : /api/user/logout
 
 export const logout = async (req, res) => {
+  res.setHeader("Cache-Control", "no-store");
   try {
     res.clearCookie("token", {
       httpOnly: true,
