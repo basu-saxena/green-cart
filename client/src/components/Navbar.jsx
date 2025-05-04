@@ -19,6 +19,7 @@ const Navbar = () => {
     setCartItems,
   } = useAppContext();
 
+  // console.log(user);
   const logout = async () => {
     try {
       const { data } = await axios.get("/api/user/logout");
@@ -44,7 +45,7 @@ const Navbar = () => {
   }, [searchQuery]);
 
   return (
-    <nav className="sticky top-0 z-50 flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 py-4 border-b border-gray-300 bg-white relative transition-all">
+    <nav className="sticky top-0 z-50 w-full flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 py-4 border-b border-gray-300 bg-white  transition-all">
       <NavLink
         to="/"
         onClick={() => {
@@ -139,6 +140,7 @@ const Navbar = () => {
         <div
           onClick={() => {
             navigate("/cart");
+            window.scrollTo({ top: 0, behavior: "smooth" });
           }}
           className="relative cursor-pointer"
         >

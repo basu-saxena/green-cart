@@ -23,6 +23,7 @@ const Login = () => {
         setUser(data.user);
         setShowUserLogin(false);
         navigate("/");
+        window.scrollTo({ top: 0, behavior: "smooth" });
         location.reload();
       } else {
         toast.error(data.message);
