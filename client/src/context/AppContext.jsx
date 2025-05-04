@@ -45,6 +45,10 @@ export const AppContextProvider = ({ children }) => {
       console.error("Failed to fetch user:", error);
       // console.log("in catch block");
       setUser(null);
+
+      if (error.response?.status === 401) {
+        console.log("User is not authenticated ");
+      }
     }
   };
 
