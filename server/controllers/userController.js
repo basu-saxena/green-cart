@@ -29,6 +29,7 @@ export const register = async (req, res) => {
       secure: process.env.NODE_ENV === "production", // use secure cookies in production
       sameSite: process.env.NODE_ENV === "production" ? "none" : "strict", //CSRF Protection
       maxAge: 7 * 24 * 60 * 60 * 1000, //  cookie expire time
+      path: "/",
     });
 
     return res.json({
@@ -79,6 +80,7 @@ export const login = async (req, res) => {
       secure: process.env.NODE_ENV === "production",
       sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
       maxAge: 7 * 24 * 60 * 60 * 1000,
+      path: "/",
     });
 
     return res.json({
